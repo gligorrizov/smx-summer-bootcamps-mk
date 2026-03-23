@@ -20,6 +20,42 @@ export const BootcampPage = ({ data }) => {
         </div>
       </section>
 
+      {/* Transformation */}
+      {d.transformation && (
+        <section className="section transformation-section">
+          <h2 className="section-title">{d.transformation.title}</h2>
+          <p className="section-subtitle">{d.transformation.subtitle}</p>
+          <div className="transformation-grid">
+            <div className="transformation-col transformation-before">
+              <div className="transformation-label transformation-label-before">
+                {d.transformation.beforeLabel}
+              </div>
+              <div className="transformation-items">
+                {d.transformation.before.map((item, i) => (
+                  <div key={i} className="transformation-item">
+                    <span className="transformation-icon">{item.icon}</span>
+                    <span className="transformation-text">{item.text}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="transformation-col transformation-after">
+              <div className="transformation-label transformation-label-after">
+                {d.transformation.afterLabel}
+              </div>
+              <div className="transformation-items">
+                {d.transformation.after.map((item, i) => (
+                  <div key={i} className="transformation-item">
+                    <span className="transformation-icon">{item.icon}</span>
+                    <span className="transformation-text">{item.text}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* For whom */}
       <section className="section">
         <h2 className="section-title">{d.audienceTitle}</h2>
@@ -112,6 +148,24 @@ export const BootcampPage = ({ data }) => {
           <a href={d.formUrl || '#'} className="pricing-cta">{d.pricingCta}</a>
         </div>
       </section>
+
+      {/* Guarantees */}
+      {d.guarantees && d.guarantees.length > 0 && (
+        <div className="section-alt">
+          <section className="section guarantees-section">
+            <h2 className="section-title">Што добиваш?</h2>
+            <p className="section-subtitle">Сè што ти треба за успешно учење — вклучено во цената.</p>
+            <div className="guarantees-list">
+              {d.guarantees.map((g, i) => (
+                <div key={i} className="guarantee-item">
+                  <span className="guarantee-check">✓</span>
+                  <span className="guarantee-text">{g}</span>
+                </div>
+              ))}
+            </div>
+          </section>
+        </div>
+      )}
 
       {/* FAQ */}
       <div className="section-alt">
